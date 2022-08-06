@@ -1,5 +1,8 @@
 package com.example.firstapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         btn = findViewById(R.id.button);
+        btn.setOnClickListener(this);
     }
 
     @Override
@@ -65,12 +69,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
-                alarm();
+                testCheck();
                 break;
         }
     }
 
     public void alarm() {
         Toast.makeText(getApplicationContext(), "Тест-тест-тест", Toast.LENGTH_SHORT).show();
+    }
+
+    public void testActivity() {
+        Intent intent = new Intent(getApplicationContext(), AdditionalActivity.class);
+        startActivity(intent);
+    }
+
+    public void test3() {
+        Toast.makeText(getApplicationContext(), "Тест-3", Toast.LENGTH_SHORT).show();
+    }
+
+    private void testCheck(){
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(this);
+        builder.setTitle("Отчёты")
+                .setCancelable(true)
+                .setPositiveButton("Подменю 1",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                alarm();
+                                dialog.cancel();
+                            }
+                        })
+                .setNegativeButton("Подменю 2",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                test3();
+                                dialog.cancel();
+                            }
+                        })
+                .setNeutralButton("Подменю 3",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                testActivity();
+                                dialog.cancel();
+                            }
+                        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }
