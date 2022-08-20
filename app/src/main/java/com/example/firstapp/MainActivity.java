@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
-    Button btn;
+    Button btn, btn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btn = findViewById(R.id.button);
         btn.setOnClickListener(this);
+
+        btn2 = findViewById(R.id.button2);
+        btn2.setOnClickListener(this);
     }
 
     @Override
@@ -71,7 +74,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.button:
                 testCheck();
                 break;
+            case R.id.button2:
+                changeText();
+                break;
         }
+    }
+    public void changeText() {
+        Toast.makeText(getApplicationContext(), "Изменить текст", Toast.LENGTH_SHORT).show();
     }
 
     public void alarm() {

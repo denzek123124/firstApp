@@ -11,4 +11,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="buttonFirst">Кнопка</string>
     <string name="textViewFirst">Привет Мир!!!</string>
+    <string name="btnChangeText">Изменить Текст</string>
 </resources>
