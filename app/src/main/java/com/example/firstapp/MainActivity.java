@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     Button btn, btn2;
+//    test
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
